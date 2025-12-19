@@ -58,7 +58,7 @@
 "exec": "echo -e '{\"tooltip\": \"メニュー\"}'",
 "return-type": "json",
 "tooltip": true,
-"on-click": "fuzzel",
+"on-click": "$HOME/.config/waybar/scripts/fuzzel_toggle.sh",
 },
 
 //ファイラー
