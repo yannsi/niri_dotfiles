@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # get_weather.sh
 
-location=那覇市
+location=""
 
 for i in {1..5}
 do

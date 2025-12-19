@@ -26,7 +26,7 @@ Arch Linux + Niri デスクトップ環境の設定ファイル集です。
 sudo pacman -S git openssh
 
 # SSH鍵の生成（既に鍵を持っている場合はスキップ）
-ssh-keygen -t ed25519 -C "yannsi.k@gmail.com"
+ssh-keygen -t ed25519 -C "your_email@example.com"
 
 # 公開鍵を表示してコピーし、GitHubの設定画面に登録してください
 cat ~/.ssh/id_ed25519.pub
