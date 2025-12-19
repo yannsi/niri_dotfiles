@@ -1,11 +1,10 @@
-# Starship Configuration - Bubble Pastel Theme (Fixed)
-# Matches Catppuccin Macchiato & Waybar style
+# Starship Configuration - Bubble Pastel Theme (Fixed Layout)
 
 format = """
-[](#363a4f)
+[](fg:#363a4f)
 $os
 $username
-[](bg:#363a4f fg:#f4dbd6)
+[](fg:#363a4f bg:#f4dbd6)
 $directory
 [](fg:#f4dbd6 bg:#c6a0f6)
 $git_branch
