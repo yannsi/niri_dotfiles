@@ -1,21 +1,12 @@
-# Starship Configuration - Floating Pill Theme (Most Stable)
+# Starship Configuration - Floating Pill Theme (Final Fix)
 
-# 各モジュールを独立したカプセルにして、表示崩れを完全に防ぎます
-format = """
-$os$username\
-$directory\
-$git_branch$git_status\
-$c$elixir$elm$golang$gradle$haskell$java$julia$nodejs$nim$rust$scala\
-$docker_context
-$time
-$line_break
-$character"""
+# すべての定義を完全に1行にまとめ、改行の発生を物理的に防ぎます
+format = "$os$username $directory $git_branch$git_status $c$elixir$elm$golang$gradle$haskell$java$julia$nodejs$nim$rust$scala $docker_context $time$line_break$character"
 
-# ユーザー名とOS
 [os]
 disabled = false
 style = "bg:#363a4f fg:#cad3f5"
-format = "[](#363a4f)[$symbol](bg:#363a4f fg:#cad3f5)"
+format = "[](#363a4f)[$symbol]($style)"
 
 [os.symbols]
 Arch = " "
@@ -24,54 +15,45 @@ Arch = " "
 show_always = true
 style_user = "bg:#363a4f fg:#cad3f5"
 style_root = "bg:#363a4f fg:#ed8796"
-format = "[$user](bg:#363a4f fg:#cad3f5)[](#363a4f) "
+format = "[$user]($style)[](#363a4f)"
 
-# ディレクトリ
 [directory]
 style = "bg:#f4dbd6 fg:#363a4f"
-format = "[](#f4dbd6)[$path](bg:#f4dbd6 fg:#363a4f)[](#f4dbd6) "
+format = "[](#f4dbd6)[$path]($style)[](#f4dbd6)"
 truncation_length = 3
 truncation_symbol = "…/"
 
-# Git
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
 [git_branch]
 symbol = ""
 style = "bg:#c6a0f6 fg:#24273a"
-format = "[](#c6a0f6)[$symbol $branch](bg:#c6a0f6 fg:#24273a)"
+format = "[](#c6a0f6)[$symbol $branch]($style)"
 
 [git_status]
 style = "bg:#c6a0f6 fg:#24273a"
-format = "[[ $all_status$ahead_behind ](bg:#c6a0f6 fg:#24273a)][](#c6a0f6) "
+format = "[ $all_status$ahead_behind]($style)[](#c6a0f6)"
 
-# 言語設定（共通の青スタイル）
 [nodejs]
 symbol = ""
 style = "bg:#8aadf4 fg:#24273a"
-format = "[](#8aadf4)[$symbol ($version)](bg:#8aadf4 fg:#24273a)[](#8aadf4) "
+format = "[](#8aadf4)[$symbol ($version)]($style)[](#8aadf4)"
 
 [rust]
 symbol = ""
 style = "bg:#8aadf4 fg:#24273a"
-format = "[](#8aadf4)[$symbol ($version)](bg:#8aadf4 fg:#24273a)[](#8aadf4) "
+format = "[](#8aadf4)[$symbol ($version)]($style)[](#8aadf4)"
 
-[golang]
-symbol = ""
-style = "bg:#8aadf4 fg:#24273a"
-format = "[](#8aadf4)[$symbol ($version)](bg:#8aadf4 fg:#24273a)[](#8aadf4) "
-
-[python]
-symbol = " "
-style = "bg:#8aadf4 fg:#24273a"
-format = "[](#8aadf4)[$symbol ($version)](bg:#8aadf4 fg:#24273a)[](#8aadf4) "
-
-# 時間
 [time]
 disabled = false
 time_format = "%R"
 style = "bg:#7dc4e4 fg:#24273a"
-format = "[](#7dc4e4)[ $time](bg:#7dc4e4 fg:#24273a)[](#7dc4e4) "
+format = "[](#7dc4e4)[ $time]($style)[](#7dc4e4)"
 
-# 入力プロンプト
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
