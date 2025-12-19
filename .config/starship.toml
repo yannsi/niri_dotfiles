@@ -1,16 +1,16 @@
-# Starship Configuration - Bubble Pastel Theme
+# Starship Configuration - Bubble Pastel Theme (Fixed)
 # Matches Catppuccin Macchiato & Waybar style
 
 format = """
-[](surface0)
+[](#363a4f)
 $os
 $username
-[](bg:surface0 fg:rosewater)
+[](bg:#363a4f fg:#f4dbd6)
 $directory
-[](fg:rosewater bg:mauve)
+[](fg:#f4dbd6 bg:#c6a0f6)
 $git_branch
 $git_status
-[](fg:mauve bg:blue)
+[](fg:#c6a0f6 bg:#8aadf4)
 $c
 $elixir
 $elm
@@ -23,53 +23,24 @@ $nodejs
 $nim
 $rust
 $scala
-[](fg:blue bg:teal)
+[](fg:#8aadf4 bg:#8bd5ca)
 $docker_context
-[](fg:teal bg:sapphire)
+[](fg:#8bd5ca bg:#7dc4e4)
 $time
-[ ](fg:sapphire)
+[ ](fg:#7dc4e4)
 """
 
-# パレット定義 (Catppuccin Macchiato)
-[palettes.catppuccin_macchiato]
-rosewater = "#f4dbd6"
-flamingo = "#f0c6c6"
-pink = "#f5bde6"
-mauve = "#c6a0f6"
-red = "#ed8796"
-maroon = "#ee99a0"
-peach = "#f5a97f"
-yellow = "#eed49f"
-green = "#a6da95"
-teal = "#8bd5ca"
-sky = "#91d7e3"
-sapphire = "#7dc4e4"
-blue = "#8aadf4"
-lavender = "#b7bdf8"
-text = "#cad3f5"
-subtext1 = "#b8c0e0"
-subtext0 = "#a5adcb"
-overlay2 = "#939ab7"
-overlay1 = "#8087a2"
-overlay0 = "#6e738d"
-surface2 = "#5b6078"
-surface1 = "#494d64"
-surface0 = "#363a4f"
-base = "#24273a"
-mantle = "#1e2030"
-crust = "#181926"
-
-palette = "catppuccin_macchiato"
-
+# ユーザー名
 [username]
 show_always = true
-style_user = "bg:surface0 fg:text"
-style_root = "bg:surface0 fg:red"
+style_user = "bg:#363a4f fg:#cad3f5"
+style_root = "bg:#363a4f fg:#ed8796"
 format = '[$user ]($style)'
 
+# OSアイコン
 [os]
-style = "bg:surface0 fg:text"
-disabled = false # OSアイコンを有効化
+style = "bg:#363a4f fg:#cad3f5"
+disabled = false
 
 [os.symbols]
 Arch = " "
@@ -78,8 +49,9 @@ Debian = " "
 Fedora = " "
 Linux = " "
 
+# ディレクトリ
 [directory]
-style = "bg:rosewater fg:surface0"
+style = "bg:#f4dbd6 fg:#363a4f"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -90,48 +62,51 @@ truncation_symbol = "…/"
 "Music" = " "
 "Pictures" = " "
 
+# Git設定
 [git_branch]
 symbol = ""
-style = "bg:mauve fg:base"
+style = "bg:#c6a0f6 fg:#24273a"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:mauve fg:base"
+style = "bg:#c6a0f6 fg:#24273a"
 format = '[$all_status$ahead_behind ]($style)'
 
+# 言語設定（青系）
 [nodejs]
 symbol = ""
-style = "bg:blue fg:base"
+style = "bg:#8aadf4 fg:#24273a"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
 symbol = ""
-style = "bg:blue fg:base"
+style = "bg:#8aadf4 fg:#24273a"
 format = '[ $symbol ($version) ]($style)'
 
 [golang]
 symbol = ""
-style = "bg:blue fg:base"
+style = "bg:#8aadf4 fg:#24273a"
 format = '[ $symbol ($version) ]($style)'
 
-[docker_context]
-symbol = " "
-style = "bg:teal fg:base"
-format = '[ $symbol $context ]($style)'
-
-[time]
-disabled = false
-time_format = "%R"
-style = "bg:sapphire fg:base"
-format = '[  $time ]($style)'
-
-# 他の言語も同様のスタイル
 [c]
 symbol = " "
-style = "bg:blue fg:base"
+style = "bg:#8aadf4 fg:#24273a"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
 symbol = " "
-style = "bg:blue fg:base"
+style = "bg:#8aadf4 fg:#24273a"
 format = '[ $symbol ($version) ]($style)'
+
+# Docker
+[docker_context]
+symbol = " "
+style = "bg:#8bd5ca fg:#24273a"
+format = '[ $symbol $context ]($style)'
+
+# 時間
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#7dc4e4 fg:#24273a"
+format = '[  $time ]($style)'
