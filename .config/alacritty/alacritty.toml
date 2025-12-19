@@ -21,6 +21,14 @@ bold = { family = "Hack Nerd Font", style = "Bold" }
 italic = { family = "Hack Nerd Font", style = "Italic" }
 size = 12.0
 
+[font.offset]
+x = 0
+y = 0
+
+[font.glyph_offset]
+x = 0
+y = 0
+
 [colors]
 # Catppuccin Macchiato Theme
 # https://github.com/catppuccin/alacritty
