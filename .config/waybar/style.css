@@ -1,0 +1,195 @@
+/* =============================================================================
+   Global Reset & Font
+   ============================================================================= */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Roboto", "Hack Nerd Font", "Font Awesome 6 Free", "FontAwesome", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+/* =============================================================================
+   Main Bar Window
+   ============================================================================= */
+window#waybar {
+    background: rgba(40, 40, 56, 0.6); /* 全体背景を少し薄く */
+    color: #cad3f5; /* テキスト色も少し明るく */
+    /* 下線は削除し、浮遊感を出す */
+}
+
+/* =============================================================================
+   Tooltips
+   ============================================================================= */
+tooltip {
+    background: rgba(40, 40, 58, 0.95); /* アルファチャンネルを追加して角丸を有効にする試み */
+    border: 1px solid #4a4a5e;
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: #cad3f5;
+}
+
+/* =============================================================================
+   Workspace Buttons
+   ============================================================================= */
+#workspaces {
+    background-color: #28283a; /* ワークスペース背景も薄く */
+    margin: 4px 4px;
+    padding: 0px 5px;
+    border-radius: 16px;
+    border: 1px solid #4a4a5e; /* ボーダーも薄く */
+}
+
+#workspaces button {
+    padding: 0 5px;
+    margin: 4px 2px;
+    background-color: transparent;
+    color: #7f849c; /* 色を薄く */
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.15); /* ホバー時の透明度を少し上げる */
+    color: #ffffff;
+}
+
+#workspaces button.focused, #workspaces button.active {
+    background-color: #a6d1f9; /* アクセントカラーを少し明るく */
+    color: #28283a; /* テキスト色も薄い背景に合わせる */
+    min-width: 20px;
+}
+
+#workspaces button.urgent {
+    background-color: #f7a9bf; /* 赤色を少し明るく */
+    color: #28283a;
+}
+
+/* =============================================================================
+   Modules Common Style - The "Chip" / "Pill" Look
+   ============================================================================= */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd,
+#custom-menu,
+#custom-power,
+#custom-folder,
+#custom-firefox,
+#custom-radio,
+#custom-backlight,
+#custom-cava,
+#mpris {
+    padding: 0 15px;
+    margin: 4px 3px;
+    color: #cad3f5;
+    background-color: #28283a; /* モジュール背景も薄く */
+    border-radius: 16px;
+    border: 1px solid #4a4a5e; /* ボーダーも薄く */
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+#custom-menu:hover,
+#custom-folder:hover,
+#custom-firefox:hover,
+#custom-radio:hover,
+#custom-backlight:hover,
+#custom-power:hover,
+#wireplumber:hover,
+#clock:hover,
+#tray:hover,
+#custom-cava:hover,
+#mpris:hover {
+    background-color: #4a4a5e; /* ホバー時も薄く */
+    border-color: #6a6a7e;
+}
+
+/* =============================================================================
+   Specific Module Styling
+   ============================================================================= */
+
+/* --- Left Modules (Menu, Apps) --- */
+#custom-menu {
+    background-color: #a6d1f9; /* アクセントカラーを明るく */
+    color: #28283a;
+    padding-left: 12px;
+    padding-right: 14px;
+    margin-left: 6px;
+    border: none;
+}
+
+#custom-folder { color: #fbedaa; } /* 黄色を明るく */
+#custom-firefox { color: #fecba5; } /* オレンジを明るく */
+#custom-radio { color: #b1e3a9; } /* 緑を明るく */
+
+/* --- Center Modules (Media, Cava) --- */
+#custom-media {
+    background-color: #4a4a5e; /* 薄く */
+    border-color: #6a6a7e;
+}
+#custom-cava {
+    background-color: transparent;
+    border: none;
+    color: #e0b6f1; /* Cavaの色も明るく */
+    font-family: "Hack Nerd Font", sans-serif;
+}
+
+/* --- Right Modules (System Stats) --- */
+
+/* Clock */
+#clock {
+    background-color: #28283a;
+    color: #a6d1f9; /* 明るい青 */
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+/* Power Button */
+#custom-power {
+    background-color: #f7a9bf; /* 赤色を明るく */
+    color: #28283a;
+    padding-right: 12px;
+    padding-left: 14px;
+    border: none;
+}
+
+/* Battery */
+#battery.charging, #battery.plugged {
+    color: #b1e3a9; /* 緑色を明るく */
+}
+#battery.critical:not(.charging) {
+    background-color: #f7a9bf;
+    color: #28283a;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Network */
+#network.disconnected {
+    background-color: #f7a9bf;
+    color: #28283a;
+}
+
+/* Tray */
+#tray {
+    background-color: #28283a;
+    padding: 0 10px;
+}

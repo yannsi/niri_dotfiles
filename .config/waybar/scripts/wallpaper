@@ -1,0 +1,2 @@
+#!/bin/bash
+swaybg -i '/usr/share/hypr/wall1.png'
