@@ -1,0 +1,46 @@
+# Swaylock configuration
+
+daemonize
+show-failed-attempts
+ignore-empty-password
+
+# Color Scheme (Catppuccin Macchiato based)
+color=24273a
+
+# Layout
+font=Hack Nerd Font
+font-size=24
+
+# Ring
+indicator-radius=120
+indicator-thickness=10
+line-uses-inside
+
+# Ring Colors
+ring-color=494d64
+key-hl-color=8aadf4
+bs-hl-color=ed8796
+
+# Inside Colors (Background of the ring)
+inside-color=24273a
+inside-clear-color=24273a
+inside-ver-color=24273a
+inside-wrong-color=24273a
+
+# Text Colors
+text-color=cad3f5
+text-clear-color=cad3f5
+text-ver-color=cad3f5
+text-wrong-color=ed8796
+
+# Separator
+separator-color=00000000
+
+# Border (ring outlines)
+line-color=00000000
+line-clear-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+# Status Text
+text-caps-lock-color=eed49f
