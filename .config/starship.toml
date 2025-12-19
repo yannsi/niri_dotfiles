@@ -1,33 +1,7 @@
-# Starship Configuration - Bubble Pastel Theme (Fixed Layout)
+# Starship Configuration - Bubble Pastel Theme (Single Line Fix)
 
-format = """
-[](fg:#363a4f)
-$os
-$username
-[](fg:#363a4f bg:#f4dbd6)
-$directory
-[](fg:#f4dbd6 bg:#c6a0f6)
-$git_branch
-$git_status
-[](fg:#c6a0f6 bg:#8aadf4)
-$c
-$elixir
-$elm
-$golang
-$gradle
-$haskell
-$java
-$julia
-$nodejs
-$nim
-$rust
-$scala
-[](fg:#8aadf4 bg:#8bd5ca)
-$docker_context
-[](fg:#8bd5ca bg:#7dc4e4)
-$time
-[ ](fg:#7dc4e4)
-"""
+# すべてのフォーマットを1行に結合して、改行崩れを完全に防ぎます
+format = "[](fg:#363a4f)$os$username[](fg:#363a4f bg:#f4dbd6)$directory[](fg:#f4dbd6 bg:#c6a0f6)$git_branch$git_status[](fg:#c6a0f6 bg:#8aadf4)$c$elixir$elm$golang$gradle$haskell$java$julia$nodejs$nim$rust$scala[](fg:#8aadf4 bg:#8bd5ca)$docker_context[](fg:#8bd5ca bg:#7dc4e4)$time[ ](fg:#7dc4e4)"
 
 # ユーザー名
 [username]
