@@ -7,119 +7,114 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-    "custom/menu",
-    "niri/workspaces",
-	"custom/folder",
-	"custom/firefox",
-	"custom/radio",
-	"custom/media"
+        "custom/menu",
+        "niri/workspaces",
+        "custom/folder",
+        "custom/firefox",
+        "custom/radio",
+        "custom/media"
     ],
     "modules-center": [
+        "niri/window",
         "custom/cava"
     ],
     "modules-right": [
         "wireplumber",
         "custom/backlight",
         "tray",
+        "custom/weather",
         "custom/clock",
         "custom/power"
     ],
 
-//音量
-"wireplumber": {
-	"format": " {icon}{volume}% ",
-	"return-type": "json",
+    //音量
+    "wireplumber": {
+        "format": " {icon}{volume}% ",
+        "return-type": "json",
         "format-muted": " 󰝟 ",
-	"format-icons": ["󰕿", "󰖀", "󰕾"], 
-       // "on-click": "bash $HOME/.config/waybar/scripts/nizyuukidou.sh",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        // "on-click": "bash $HOME/.config/waybar/scripts/nizyuukidou.sh",
         "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && sleep 1",
         "on-click-right": "alacritty -e alsamixer",
         "max-volume": 150,
         "scroll-step": 0.7,
         "tooltip": true,
-        "tooltip-format": "音量（マウスホイールで調節・右クリックで alsamixer が開きます）",
-},
+        "tooltip-format": "音量（マウスホイールで調節・右クリックで alsamixer が開きます）"
+    },
 
-"custom/power": {
+    "custom/power": {
         "format" : "     ",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "systemctl poweroff",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		},
+        "tooltip": false,
+        "on-click": "$HOME/.config/waybar/scripts/power_menu_toggle.sh"
     },
     
-"custom/menu":{
-"format": "      ",
-"exec": "echo -e '{\"tooltip\": \"メニュー\"}'",
-"return-type": "json",
-"tooltip": true,
-"on-click": "$HOME/.config/waybar/scripts/fuzzel_toggle.sh",
-},
-
-//ファイラー
-"custom/folder": {
-    "format": "    ",
-    "exec": "echo -e '{\"tooltip\": \"ファイルマネージャー\"}'",
-    "return-type": "json",
-    "tooltip": true,
-    "on-click": "nautilus",
-    "on-click-right": "killall nautilus",
-    "on-click-middle": "alacritty -e ranger",
-},
-
-//firefox（ブラウザ）
-"custom/firefox": {
-    "format": "    ",
-    "exec": "echo -e '{\"tooltip\": \"firefox ブラウザ\"}'",
-    "return-type": "json",
-    "tooltip": true,
-    "on-click": "firefox",
-    //"on-click-right": "killall firefox",
-},
-
-//インターネットラジオ
-"custom/radio": {
-    "format": "    ",
-    "exec": "echo -e '{\"tooltip\": \"インターネットラジオ\"}'",
-    "return-type": "json",
-    "tooltip": true,
-    "on-click": "mpv https://smoothjazz.cdnstream1.com/2585_128.mp3",
-    "on-click-right": "mpv https://stream.antenne.de/classic-rock-live/stream/mp3",
-    "on-click-middle": "bash $HOME/.config/waybar/scripts/radiostation.sh",
-},
-
-//動画や音楽の視聴時に表示される
-"custom/media": {
-    "format": " {icon}{text} ",
-    "return-type": "json",
-    "format-icons": {
-        "Playing": " ",
-        "Paused": " ",
-        "stop": " ",
+    "custom/menu":{
+        "format": "      ",
+        "tooltip": true,
+        "tooltip-format": "メニュー",
+        "on-click": "$HOME/.config/waybar/scripts/fuzzel_toggle.sh"
     },
-    "max-length":70,
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}}  {{markup_escape(title)}}\", \"tooltip\": \"{{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-    "on-click": "playerctl play-pause",
-    "on-click-middle": "alacritty -e cava",
-    "on-click-right": "playerctl stop"
-},
 
-"niri/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-        "active": "",
-        "default": ""
-    }
-},
+    //ファイラー
+    "custom/folder": {
+        "format": "    ",
+        "tooltip": true,
+        "tooltip-format": "ファイルマネージャー",
+        "on-click": "nautilus",
+        "on-click-right": "killall nautilus",
+        "on-click-middle": "alacritty -e ranger"
+    },
 
+    //firefox（ブラウザ）
+    "custom/firefox": {
+        "format": "    ",
+        "tooltip": true,
+        "tooltip-format": "firefox ブラウザ",
+        "on-click": "firefox"
+        //"on-click-right": "killall firefox"
+    },
 
+    //インターネットラジオ
+    "custom/radio": {
+        "format": "    ",
+        "tooltip": true,
+        "tooltip-format": "インターネットラジオ",
+        "on-click": "mpv https://smoothjazz.cdnstream1.com/2585_128.mp3",
+        "on-click-right": "mpv https://stream.antenne.de/classic-rock-live/stream/mp3",
+        "on-click-middle": "bash $HOME/.config/waybar/scripts/radiostation.sh"
+    },
 
+    //動画や音楽の視聴時に表示される
+    "custom/media": {
+        "format": " {icon}{text} ",
+        "return-type": "json",
+        "format-icons": {
+            "Playing": " ",
+            "Paused": " ",
+            "stop": " "
+        },
+        "max-length":70,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}}  {{markup_escape(title)}}\", \"tooltip\": \"{{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click": "playerctl play-pause",
+        "on-click-middle": "alacritty -e cava",
+        "on-click-right": "playerctl stop"
+    },
 
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        }
+    },
+    
+    "niri/window": {
+        "format": "{}",
+        "max-length": 50,
+        "rewrite": {
+            "": "Waybar"
+        }
+    },
 
     "keyboard-state": {
         "numlock": true,
@@ -167,7 +162,17 @@
         "exec": "$HOME/.config/waybar/scripts/clock.sh",
         "return-type": "json",
         "interval": 30,
-        "on-click": "alacritty --hold -e cal -3"
+        "signal": 8,
+        "on-click": "$HOME/.config/waybar/scripts/clock_toggle.sh",
+        "on-click-right": "$HOME/.config/waybar/scripts/calendar_popup.sh"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "$HOME/.config/waybar/scripts/get_weather.py",
+        "return-type": "json",
+        "on-click-right": "$HOME/.config/waybar/scripts/set_weather_location.sh"
     },
     "tray": {
         // "icon-size": 21,
@@ -190,13 +195,12 @@
         "format-icons": ["", "", ""]
     },
    //バックライト
-"custom/backlight": {
-        "exec": "echo -e '{\"tooltip\": \"バックライト(左クリック：明るくなる | 右クリック：暗くなる)\"}'",
+    "custom/backlight": {
         "format": "    ",
-        "return-type": "json",
         "tooltip": true,
+        "tooltip-format": "バックライト(左クリック：明るくなる | 右クリック：暗くなる)",
         "on-click": "brightnessctl s +4% ",
-        "on-click-right": "brightnessctl s 4%-",
+        "on-click-right": "brightnessctl s 4%-"
     },
     "battery": {
         "states": {
@@ -243,8 +247,4 @@
         "return-type": "plaintext",
         "tooltip": false
     }
-    
-
-    
-
 }
